@@ -74,6 +74,9 @@ jobs:
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
 
+    - name: Change the default theme
+      run: cd openwrt/package/lean && rm -rf luci-theme-argon
+
     - name: Load custom configuration
       run: |
         [ -e files ] && mv files openwrt/files
